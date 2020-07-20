@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tal's Potfolio</title>
+</head>
+
+<body>
+    <img id="titleOpening" src="images/titleOpening.png" />
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/title2.png" class="title">
+                </div>
+                <div class="col-5"></div>
+                <div class="navBar col-5">
+                    <nav>
+                        <a class="nuvbutt" href="#about">about</a>
+                        <a class="nuvbutt" href="#gallery">gallery</a>
+                        <a class="nuvbutt" href="#contact">contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="leftContent col-md-6"><img src="images/myImage.png" class="me"></div>
+
+                <div class="rightContent col-md-6">
+                    <p id="creative">CREATIVE</p>
+                    <p id="developer">D E V E L O P E R</p>
+                    <p id="sensible">SENSIBLE TO FRONTEND</p>
+
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div style="height: 30px;"></div>
+                <div id="about" class="col-md-6 text-dark p-5">
+                    <h2 style="text-align: center;">About</h2>
+                    <p>Hello there, I'm Tal Korman, Student at HackerU college, studying Mobile apps development for Android and IOS. My coding jurney began at the 80s, while practicing coding games in BASIC language on Dragon 64 computer and Apple 2E, that
+                        was a great time for developing Karate, Space and Quest games from scratch. At high school I learned Pascal software and continued studying Electronics Practical Engineering, graduated with a final project of programed automotive
+                        robot for delivering objects from one place to another, coded with Assembly language on 8051 CPU. Many years passed and on January 2019 I took some online courses on Javascript language and developed a complicated app for Loading
+                        containers (see Loading Optimizator at <a href="#gallery">gallery</a>). Recently I've completed another Javascript course at HackerU college which helped me to improve and increase my web coding and design skills. Currently I study
+                        Java at HackerU and looking forward to develop new ideas of apps on mobile devices.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="logo2">
+                        <img class="logos" src="images/javascript.svg" alt="javascript">
+                        <img class="logos" src="images/html-5.svg" alt="javascript">
+                        <img class="logos" src="images/css-5.svg" alt="javascript">
+                        <img class="logos" src="images/bootstrap-4.svg" alt="javascript">
+                        <img class="logos" style="width: 200px;" src="images/jquery.svg" alt="javascript">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="gallery" class="container">
+            <div class="row">
+                <div id="cardsArea" class="col-md-12">
+                    <h2 class="text-light" style="text-align:center">Gallery</h2>
+                    <br><br>
+                    <div class="cards">
+                        <div class="card" id="b1">
+                            <div class="imageFrame"><img class="card-img-top" src="images/cont.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Loading Optimizator</h5>
+
+                                <p class="card-text"> I'm excited to introduce to you my first Javascript app, <span id="dots">...</span><span id="more" style="display: none;">following an old idea that came up while calculating and loading containers in China, struggeling on how to insert the total quantity of the goods to a container with minimal wasted spaces. The app will do for you the frustrating job and provide you the best configuration of how to load your consignment. The app's AI logic which was my top developing challange so far is doing an imitation of the human logic for achieving the same task. On the current version for a security reason I moved the AI module from the browser side to a server with Node js and Express js. I used Threejs  library for rendering the 3D scene and developed a mouse and touch mechanism control for orientation in 3 dimension enviroment which was a bit tough geometrical challange to achieve a high level of smoothness orientation. The styling was modified to fit variety of screen sizes as well as mobile devices.
+                                The software is still been developed and more features are planned to be added... 
+                                For ilustrating the problem that this app can solve, here are some containers loading photos that I took in China.
+                                <img src="images/loading1.jpg" alt="loading">
+                                <img src="images/loading2.jpg" alt="loading">
+                                <img src="images/loading3.jpg" alt="loading">
+                                <img src="images/loading4.jpg" alt="loading">
+                                <img src="images/loading5.jpg" alt="loading">
+                                <img src="images/loading6.jpg" alt="loading">
+                                </span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img src="images/jquery.svg" alt="">
+                                    <img style="height:50px; width: 100px" src="images/three.png" alt="">
+                                    <img style="width: 80px" src="images/nodejs.svg" alt="">
+                                    <img src="images/express.svg" alt="">
+                                </div>
+                                <a href="https://hamchala.herokuapp.com/" class="btn btn-info">Goto App</a>
+                            </div>
+                        </div>
+                        <div class="card" id="b2">
+                            <div class="imageFrame"><img class="card-img-top" src="images/space.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Space Voyage</h5>
+                                <p class="card-text">This app was made as a homework project, at the beginning it was suppose <span id="dots">...</span><span id="more" style="display: none;">to ba a balistic missile demonstration but during the development somehow the idea of traveling in space took over.
+                                Actually it is an educational scientific game for kids to learn about the appearance and the locations of the planets in the solar system.
+                            Need to navigate the rocket according to the instruction notes on the screen the animation effects were created by
+                        shifting layers according to the rocket location, speed and direction.</span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img src="images/jquery.svg" alt="">
+                                </div>
+                                <a href="Apps/spaceGame/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+                        </div>
+                        <div class="card" id="b3">
+                            <div class="imageFrame"><img class="card-img-top" src="images/Break.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Break them all</h5>
+                                <p class="card-text">This app algorithm and code was developed from scratch <span id="dots">...</span><span id="more" style="display: none;">It's the famous classic game from the 80s. it works smooth with some extra unpredictability that adding fun to the gaming experience.</span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img src="images/jquery.svg" alt="">
+                                </div>
+                                <a href="Apps/Breakthrough/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+                        </div>
+                        <div class="card" id="b4">
+                            <div class="imageFrame"><img class="card-img-top" src="images/oron.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Oron's <br>Challange</h5>
+                                <p class="card-text">This app is a time laps mathematic test for kids. The scoring<span id="dots">...</span><span id="more" style="display: none;"> logic is: As much challanging the operator is so the number of scores is for each exercise<span><p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img style="width: 40px" src="images/bootstrap-4.svg" alt="">
+                                </div>
+                                <a href="Apps/OronsTest/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+                        </div>
+                        <div class="card" id="b5">
+                            <div class="imageFrame"><img class="card-img-top" src="images/shopping.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Shopping list</h5>
+                                <p class="card-text">Write your list for shopping with extra features of Local storage<span id="dots">...</span><span id="more" style="display: none;"> use for keeping your data even if the cumputer was shut down and cool animation. you can add and remove items to the list and for better organization there is a rule to write the multiply 'X' (capital X) between the quantity and the item name.</span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img style="width: 40px" src="images/bootstrap-4.svg" alt="">
+                                    <img src="images/jquery.svg" alt="">
+                                    <p style="font-weight: bold; font-size: large;">Local Storage</p>
+                                </div>
+                                <a href="Apps/shoppingList/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+
+                        </div>
+                        <div class="card" id="b6">
+                            <div class="imageFrame"><img class="card-img-top" src="images/screen.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Screen Builder</h5>
+                                <p class="card-text">A cool app for creating squares. styled with Bootstrap. you can chose the<span id="dots">...</span><span id="more" style="display: none;">  colors, elements, and attributes of square elements and create amazing screens.</span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img style="width: 40px" src="images/bootstrap-4.svg" alt="">
+
+                                </div>
+                                <a href="Apps/ScreenBuilder/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+                        </div>
+                        <div class="card" id="b7">
+                            <div class="imageFrame"><img class="card-img-top" src="images/calculator.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Pass calculator</h5>
+                                <p class="card-text">App which combine code plus calculator. The calculator window will apear<span id="dots">...</span><span id="more" style="display: none;">  on the left area of the screen once the password has been validated (user:"hackeru" Pass:"hackeru123").</span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                    <img src="images/javascript.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <img style="width: 40px" src="images/bootstrap-4.svg" alt="">
+                                </div>
+                                <a href="Apps/calculator/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+
+                        </div>
+                        <div class="card" id="B8">
+                            <div class="imageFrame"><img class="card-img-top" src="images/mySite.png" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Promotion page</h5>
+                                <p class="card-text">This page promoting my working experience in China, there are <span id="dots">...</span><span id="more" style="display: none;">some more features need to be added but actually I had to add this one for making the cards quantity even...</span></p>
+                                <p class="rm" onclick="readMore(this)" style="cursor:pointer">read more</p>
+                                <div class="logoCard1">
+                                    <img src="images/html-5.svg" alt="">
+                                    <img src="images/css-5.svg" alt="">
+                                </div>
+                                <div class="logoCard2">
+                                    <p style="font-weight: bold; font-size: large;">CSS grid</p>
+                                </div>
+                                <a href="Apps/mySite/index.html" class="btn btn-info">Goto App</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="contact" class="container">
+            <div class="row text-light">
+                <div class="col-md-12">
+                    <br>
+                    <h2>Contact</h2>
+                    <p class="">Please fill your details and we'll contact you</p>
+                    <p id="warning"></p>
+                    <div class="col-md-12">
+                        <form class="form-horizontal text-light" action="#">
+                            <div class="form-group">
+                                <label for="email">First name</label><br>
+                                <div class="field">
+                                    <input type="email" class="form-control" id="firstName" placeholder="first name"></div>
+                                <div id="firstName1" style="display: inline-block;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Last name</label><br>
+                                <div class="field">
+                                    <input type="email" class="form-control" id="lastName" placeholder="last name"></div>
+                                <div id="lastName1" style="display: inline-block;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label><br>
+                                <div class="field">
+                                    <input type="email" class="form-control" id="email" placeholder="name@example.com"></div>
+                                <div id="email1" style="display: inline-block;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Enter a password</label><br>
+                                <div class="field">
+                                    <input type="password" class="form-control" id="pass" placeholder="Use 8 digits letters and numbers"></div>
+                                <div id="pass1" style="display: inline-block;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Reenter password</label><br>
+                                <div class="field">
+                                    <input type="password" class="form-control" id="conpass" placeholder="repeat password"></div>
+                                <div id="conpass1" style="display: inline-block;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Leave us a message</label><br>
+                                <div class="field">
+                                    <textarea class="form-control" id="message" rows="3"></textarea></div>
+                            </div>
+                            <label for="agree">
+                        <input type="checkbox" id="agree" name="agree">
+                        mark if are you agree with our terms of use...</label>
+                        </form>
+                        <button class="btn-md text-dark m-2" id="validation"><a href="#contact">submit</a></button>
+
+                    </div>
+                </div>
+            </div> <br>
+        </div>
+        <br>
+        <br>
+        <br>
+    </main>
+    <footer class="container footer text-light">
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Tal Korman</p>
+                <p>Tel - 972-55-5576394</p>
+                <p>talkorman1@gmail.com</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script>
+        $('<img/>').attr('src', 'images/bg.png').on('load', function() {
+            $(this).remove();
+            $('body').css('background-image', 'url(images/bg.png)');
+            setTimeout(() => {
+                $('#titleOpening').animate({
+                    left: '15%'
+                }, 1000);
+                setTimeout(() => {
+                    $('#titleOpening').animate({
+                        width: '200px',
+                        left: '35px',
+                        top: '20px',
+                        position: 'absolute'
+                    }, 1000);
+                    setTimeout(() => {
+                        //all elements to visible
+                        let allElements = document.getElementsByTagName('*');
+                        $('#titleOpening').remove();
+                        for (let i = 0; i < allElements.length; i++) {
+                            allElements[i].style.visibility = 'visible';
+                        }
+                        console.log('show');
+                    }, 1000);
+
+                }, 2000)
+
+            }, 1000)
+
+        });
+
+        //manipulating the cards (opacity and read more)
+        var tempBtnText = {},
+            cardId = '',
+            read = false,
+            cardsInline,
+            onCard = false;
+
+        var cardsAreaWidth = $('#cardsArea').width(),
+            cardWidth = $('.card').width();
+        if (cardsAreaWidth > 4 * cardWidth) {
+            cardsInline = 4;
+        } else if (cardsAreaWidth > 3 * cardWidth) {
+            cardsInline = 3;
+        } else if (cardsAreaWidth > 2 * cardWidth) {
+            cardsInline = 2;
+        } else {
+            cardsInline = 1;
+        }
+        let cardLeftMargin = (cardsAreaWidth - cardsInline * cardWidth) / (cardsInline + 1);
+        console.log(cardsAreaWidth, cardWidth, cardsInline, cardLeftMargin);
+        $('.card').css({
+            'margin-left': cardLeftMargin + 'px'
+        })
+        var readMore = function(btnText) {
+            tempBtnText = btnText;
+            cardId = btnText.parentNode.parentNode.id;
+            var dots = btnText.parentNode.firstChild.nextSibling.nextElementSibling.children[0],
+                moreText = dots.nextSibling;
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+                location.href = '#' + cardId;
+                read = false;
+            } else {
+                read = true;
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+        }
+
+        $('.card').mouseover(function() {
+            if (!onCard) {
+                return
+            };
+            this.style.opacity = '1';
+            cardId = this.id;
+            $(this).css({
+                'border': 'solid rgb(88, 88, 173) 2px'
+            });
+        });
+        $('.card').mouseleave(function() {
+            console.log(cardId);
+            $(this).css({
+                'border': 'none'
+            });
+            if (read) {
+                location.href = '#' + cardId;
+                read = false;
+                onCard = false;
+            };
+            this.style.opacity = '0.8';
+            var that = this;
+            setTimeout(function() {
+                var dots = that.children[1].children[1].children[0],
+                    moreText = dots.nextSibling,
+                    btnText = dots.parentNode.nextSibling;
+                dots.style.display = "inline";
+                moreText.style.display = "none";
+                onCard = true;
+            }, 1000)
+            tempBtnText.innerHTML = "Read more";
+
+        });
+
+
+        $(document).ready(main());
+
+
+        function main() {
+            var valid = false;
+            var onCard = false;
+
+
+
+            //form validation
+            var submit = {};
+            $('input').focus(function(el) {
+                $('input').addClass('.infield');
+            });
+            $('input').blur(function() {
+                var firstName = $.trim($('#firstName').val()),
+                    lastName = $.trim($('#lastName').val()),
+                    email = $.trim($('#email').val()),
+                    pass = $.trim($('#pass').val()),
+                    conpass = $.trim($('#conpass').val()),
+                    message = $.trim($('#message').val()),
+                    agree = $('#agree').prop("checked");
+
+                var namereg = /^[a-zA-Zא-ת]+$/;
+                var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                var passreg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+                var popWarning = function(elem) {
+                    console.log(elem);
+                    var nodeText = '#' + elem + '1';
+                    console.log('warning');
+                    $(nodeText).empty();
+                    $('<img src="./images/x.png" style="width:20px; visibility: visible" >').appendTo($(nodeText));
+                    $('#' + elem).removeClass('good');
+                    $('#' + elem).addClass('error');
+                    submit[elem] = '';
+                };
+
+                var popConfirm = function(elem) {
+                    var nodeText = '#' + elem + '1';
+                    console.log('confirm');
+                    $(nodeText).empty();
+                    $('<img src="./images/v.png" style="width:20px; visibility: visible">').appendTo($(nodeText));
+                    $('#' + elem).removeClass('error');
+                    $('#' + elem).addClass('good');
+                    submit[elem] = $('#' + elem).val();
+                }
+
+                if (this.id !== 'agree') {
+
+                    if (this.id == 'firstName') {
+                        console.log('value is: ' + this.value);
+                        firstName == '' || firstName.length < 2 || firstName.length >= 40 || !namereg.test(firstName) ? popWarning(this.id) : popConfirm(this.id);
+                    }
+                    if (this.id == 'lastName') {
+                        lastName == '' || lastName.length < 2 || lastName.length >= 40 || !namereg.test(lastName) ? popWarning(this.id) : popConfirm(this.id);
+                    }
+                    if (this.id == 'email') {
+                        email == '' || !emailreg.test(email) ? popWarning(this.id) : popConfirm(this.id);
+                    }
+                    if (this.id == 'pass') {
+                        !passreg.test(pass) ? popWarning(this.id) : popConfirm(this.id);
+                    }
+                    if (this.id == 'conpass') {
+                        pass !== conpass ? popWarning(this.id) : popConfirm(this.id);
+                    }
+                }
+
+
+                let num = 0;
+                for (let key in submit) {
+                    num += submit[key] ? 1 : 0;
+                }
+                valid = num >= 5 ? true : false;
+
+                console.log(valid, num);
+
+            })
+
+            $('#validation').click(function() {
+                $('#warning').empty();
+                console.log('agree: ' + agree.checked);
+                if (valid) {
+                    if (!agree.checked) {
+                        $('#warning').append('<p class="text-danger bg-light" style="visibility: visible">Please agree with the terms...</p>');
+                    } else {
+                        submit.message = $.trim($('#message').val());
+                        console.log('Submitting with the following object: \n:', submit);
+                        $('#warning').append('<p class="text-success bg-light" style="visibility: visible">Welcom to our group. we will contact you shortly</p>');
+                        setTimeout(function() {
+                            $('form').submit();
+                        }, 3000);
+                    }
+                } else {
+                    $('#warning').append('<p class="text-danger bg-light" style="visibility: visible">The details are incorrect...</p>');
+                }
+
+            })
+        };
+    </script>
+</body>
+
+</html>

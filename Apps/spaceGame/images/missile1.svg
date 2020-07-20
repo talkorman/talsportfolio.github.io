@@ -1,0 +1,19 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_1" height="84" width="237" y="182" x="248" stroke-width="5" stroke="#000000" fill="#ffff00"/>
+  <path id="svg_2" d="m177.61446,224.47551l70.4968,-40.49957l70.49709,40.49957l-70.49709,40.50047l-70.4968,-40.50047z" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+  <path d="m247,263l-72,-40"/>
+  <path d="m247,263l-72,-40"/>
+  <line transform="rotate(2.54481, 211, 243)" id="svg_3" y2="223" x2="175" y1="263" x1="247" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+  <line id="svg_5" y2="222" x2="175" y1="180" x1="251" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#000000" fill="none"/>
+  <path id="svg_6" d="m429.89645,181.36121l54.00015,-53.99989l53.99939,53.99989l-53.99939,54.00006l-54.00015,-54.00006z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#bfbf00" fill="#bfbf00"/>
+  <path id="svg_7" d="m429.00192,264.00183l54.00015,-53.99988l53.99939,53.99988l-53.99939,54.00006l-54.00015,-54.00006z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#bfbf00" fill="#bfbf00"/>
+  <text transform="rotate(1.45045e-06, 325.611, 208.817)" xml:space="preserve" text-anchor="middle" font-family="serif" font-size="24" id="svg_8" y="229" x="331" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#bfbf00" fill="#000000">Classico</text>
+  <circle id="svg_9" r="20.30164" cy="221.5" cx="537" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+  <circle id="svg_10" r="20.30164" cy="189" cx="573" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+  <circle id="svg_11" r="20.30164" cy="243" cx="579" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+  <circle id="svg_12" r="20.30164" cy="213" cx="616" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#ffff00" fill="#ffff00"/>
+ </g>
+</svg>

@@ -1,0 +1,221 @@
+* {
+    visibility: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    z-index: 1;
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    background-position: top;
+}
+
+.title {
+    width: 200px;
+    margin: 20px;
+    -webkit-filter: drop-shadow(5px 5px 5px rgb(73, 29, 29));
+    filter: drop-shadow(5px 5px 5px rgb(73, 29, 29));
+}
+
+#titleOpening {
+    visibility: visible;
+    position: fixed;
+    -webkit-filter: drop-shadow(10px 10px 10px rgb(73, 29, 29));
+    filter: drop-shadow(10px 10px 10px rgb(73, 29, 29));
+    width: 70%;
+    top: 25%;
+    right: -70%;
+}
+
+header>* {
+    position: fixed;
+    z-index: 100;
+}
+
+.navBar {
+    text-align: center;
+    padding: 20px;
+}
+
+.nuvbutt {
+    margin-left: 20px;
+    top: 60px;
+    color: white;
+    z-index: 2;
+}
+
+.rightContent {
+    display: block;
+    width: auto;
+    margin: auto;
+}
+
+.me {
+    width: 400px;
+    opacity: 0.75;
+    bottom: 0
+}
+
+#creative {
+    font-size: 100px;
+    width: 450px;
+    text-align: center;
+    height: 100px;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+#developer {
+    height: 53px;
+    width: 450px;
+    margin: 0;
+    padding: 0;
+    font-size: 55px;
+    text-align: center;
+    color: white;
+}
+
+#sensible {
+    width: 450px;
+    margin: 0;
+    padding: 0;
+    font-size: 37px;
+    text-align: center;
+    color: wheat;
+}
+
+#about {
+    background-image: url('../images/bgAbout.png');
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.logos {
+    width: 20%;
+    margin: 20px;
+    display: inline-block;
+}
+
+.logo2 {
+    display: block;
+    width: 70%;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.cards {}
+
+.card {
+    position: relative;
+    width: 200px;
+    min-height: 850px;
+    display: inline-block;
+    margin-bottom: 60px;
+    float: left;
+    opacity: 0.8;
+}
+
+.imageFrame {
+    width: fit-content;
+}
+
+.card-img-top {
+    display: block;
+    margin: auto;
+    padding: 3px;
+    height: 300px;
+    border: gray 2px solid;
+    border-image: fill;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-text {
+    text-align: left;
+}
+
+.card-body img {
+    width: 160px;
+    position: relative;
+    display: block;
+    margin: auto, auto 10px 5px;
+    padding: 5px;
+}
+
+.rm {
+    font-weight: bold;
+}
+
+.logoCard1 {
+    text-align: center;
+}
+
+.logoCard1 img {
+    width: 40px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.logoCard2 {
+    text-align: center;
+    min-height: 200px;
+}
+
+.logoCard2 img {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    margin-right: 20px;
+}
+
+#contact {
+    background-image: url('../images/bg4.png');
+    background-size: cover;
+    border-radius: 10px;
+    width: 400px;
+}
+
+#contact h2 {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+}
+
+.footer div {
+    text-align: center;
+}
+
+.footer div p {
+    display: inline-block;
+    font-size: large;
+    margin: 50px;
+}
+
+.field {
+    display: inline-block;
+}
+
+.error {
+    border: 2px solid red;
+}
+
+.infield {
+    border: 2px solid blue;
+}
+
+.good {
+    border: 2px solid green;
+}

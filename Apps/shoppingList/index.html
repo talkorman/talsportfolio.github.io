@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Class9</title>
+</head>
+
+<body>
+    <div id="ramiLevi"></div>
+    <div class="container-fluid">
+        <h1 class=" text-light bg-info p-3"> רשימת מוצרים</h1>
+        <br>
+
+
+        <div class="row ">
+
+            <div class="col-md-6 " id="exersize ">
+                <div id="buttons">
+                    <label for=" " class="p-2 bg-light">שם מוצר</label>
+                    <input type="text " id="item ">
+                    <br>
+                    <button type="button " class="btn btn-success " onclick="main()" id="start">התחל</button>
+                    <button type="button " class="btn btn-primary " onclick="addItem() ">הוסף לרשימה</button>
+                    <button type="button " class="btn btn-danger " onclick="removeItem() ">מחק מוצר אחרון</button>
+                </div>
+                <br>
+                <div class="container ">
+                    <div class="row ">
+                        <div class="col-md-3 "></div>
+                        <div class="col-md-2 " id="listFrame ">
+                            <ol>
+
+                            </ol>
+                        </div>
+                        <div class="col-md-1 "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 " id="leftSide"></div>
+        </div>
+    </div>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script>
+        $('<img/>').attr('src', 'images/agala.png').on('load', function() {
+            $(this).remove();
+        });
+        for (let i = 0; i < 5; i++) {
+            $('<img/>').attr('src', 'images/item' + i + '.png').on('load', function() {
+                $(this).remove();
+            });
+        }
+        $('<audio></audio>').attr('src', 'audio/cashier.mp3').on('load', function() {
+            $(this).remove();
+        });
+
+        var list = [],
+            index = 0,
+            qty,
+            name,
+            colIndex = 0,
+            cashierSound = document.createElement('audio'),
+            activate = false;
+        agala = document.createElement('img');
+        agala.src = 'images/agala.png';
+        agala.id = 'agala';
+        var st = setInterval(() => {
+            $('#start').fadeTo(100, 0.7).fadeTo(100, 1);
+        }, 0);
+        $('input').focus(function() {
+            $('input').val('').css({
+                'color': 'black'
+            })
+        });
+        var main = function() {
+            clearInterval(st);
+            $('#start').remove();
+            $('#leftSide').append(agala);
+            $(agala).animate({
+                left: '250px'
+            });
+            activate = true;
+            if (list = []) {
+                list = loadFromLocal();
+                if (list) {
+                    setItems();
+                } else {
+                    list = []
+                };
+            }
+        }
+
+
+        var addItem = function() {
+            if (!activate) {
+                return
+            };
+            if ($('input').val().indexOf('X') < 1) {
+                warning('חייב לכתוב: כמות X שם מוצר');
+                return;
+            }
+            list.push($('input').val());
+            setItems();
+            $('input').val('');
+            index++;
+            saveToLocal();
+            addAnimation();
+        }
+        var removeItem = function() {
+            if (index < 0) {
+                return
+            };
+            list.pop();
+            setItems();
+            //$('ol').find(':first-child').remove();
+            saveToLocal();
+            console.log(list);
+        }
+        var warning = function(msg) {
+            $('input').val(msg).css({
+                'color': 'red'
+            });
+        }
+
+        var saveToLocal = function() {
+            if (typeof(list) == null) {
+                return
+            };
+            let save = JSON.stringify(list);
+            localStorage.removeItem('json');
+            localStorage.setItem('json', save);
+            console.log(save);
+        }
+
+        var loadFromLocal = function() {
+            return JSON.parse(localStorage.getItem('json'));
+        }
+
+        var setItems = function() {
+            $('ol').empty();
+            for (let i = 0; i < list.length; i++) {
+                if (list[i]) {
+                    fromArrayToScreen(i);
+                }
+            }
+        }
+
+        var fromArrayToScreen = function(index) {
+            qty = list[index].slice(0, list[index].indexOf('X'));
+            name = list[index].slice(list[index].indexOf('X') + 1, list[index].length);
+            $('<li><p class="qty text-info lead">' + '__' + qty + '</p><p class="name text-primary">' + name + '</p></li>').appendTo('ol');
+        }
+
+        var addAnimation = function() {
+            cashier();
+            if (colIndex > 4) {
+                colIndex = 0
+            };
+            let col = ['red', 'green', 'yellow', 'blue', 'purple'];
+            let item = document.createElement('img');
+            item.src = 'images/item' + colIndex + '.png';
+            item.id = 'item' + colIndex;
+            $(item).appendTo('#leftSide');
+            let left = 350 + (colIndex * 10);
+            $(item).css({
+                'bottom': '1000px',
+                'left': left
+            });
+            $(item).animate({
+                bottom: '140px'
+            }, 500);
+            colIndex++;
+        }
+        var cashier = function() {
+            cashierSound.src = 'audio/cashier.mp3';
+            $('body').append(cashierSound);
+            cashierSound.play();
+        }
+    </script>
+
+</body>
+
+
+</html>

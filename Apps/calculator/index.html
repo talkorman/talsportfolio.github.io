@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>שב"י</title>
+</head>
+
+<body>
+
+    <div class="container-fluid bg-info m-2">
+        <h1>מחשבון</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="login col-md-6">
+                <h2>לוגאין</h2>
+                <label for="">הכנס שם משתמש</label>
+                <br>
+                <input id="name" type="text">
+                <br>
+                <label for="">הכנס סיסמה</label>
+                <br>
+                <input id="pass" type="password" name="">
+                <br>
+                <br>
+                <button type="button" class="btn btn-primary" onclick="login()">אישור</button>
+                <br>
+                <div id="message"></div>
+                <br>
+
+            </div>
+            <div class="calculator col-md-6">
+                <h2>מחשבון</h2>
+
+                <input id="num1" type="number" placeholder="הכנס מספר 1">
+                <br><br>
+                <input id="num2" type="number" placeholder="הכנס מספר 2">
+                <br><br>
+                <button type="button" class="btn btn-danger" onclick="add(Number(num1.value), Number(num2.value))">+</button>
+                <button type="button" class="btn btn-info" onclick="dec(Number(num1.value), Number(num2.value))">-</button>
+                <button type="button" class="btn btn-secondary" onclick="mul(Number(num1.value), Number(num2.value))">*</button>
+                <button type="button" class="btn btn-success" onclick="div(Number(num1.value), Number(num2.value))">/</button>
+                <br><br>
+                <div>
+                    <label for="" class="result">תוצאה</label>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        var message = '',
+            permit = false,
+            calcElm = $('.calculator');
+        calcElm.hide();
+
+        function login() {
+            var name = document.getElementById('name').value,
+                pass = document.getElementById('pass').value,
+                messageNode = document.getElementById('message'),
+                loginNode = document.querySelector('.login');
+
+            if (message !== '') {
+                loginNode.removeChild(loginNode.lastChild);
+            }
+            if (name == '' || pass == '') {
+                message = '<div id="message" class="alert alert-warning" role="alert">לא הכנסת שם משתמש</div>';
+            } else if (name == 'hackeru' && pass == 'hackeru123') {
+                permit = true;
+                message = '<div id="message" class="alert alert-primary" role="alert">ברוך הבא למחשבון</div>';
+                calcElm.show();
+            }
+            document.querySelector('.login').insertAdjacentHTML('beforeend', message);
+        }
+
+
+        function add(num1, num2) {
+            if (permit) {
+                document.querySelector('.result').innerHTML = num1 + num2;
+            }
+        }
+
+        function dec(num1, num2) {
+            if (permit) {
+                document.querySelector('.result').innerHTML = num1 - num2;
+            }
+        }
+
+        function mul(num1, num2) {
+            if (permit) {
+                document.querySelector('.result').innerHTML = num1 * num2;
+            }
+        }
+
+        function div(num1, num2) {
+            if (num2 > 0 && permit) {
+                document.querySelector('.result').innerHTML = num1 / num2;
+            } else {
+                document.querySelector('.result').innerHTML = 'אי אפשר לחלק ב - 0';
+            }
+        }
+    </script>
+</body>
+
+</html>

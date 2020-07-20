@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>class11</title>
+</head>
+
+<body>
+    <h1 class="container-fluid text-light bg-warning text-center p-3 m-1">מבחן בחשבון של אורון</h1>
+    <div class="container">
+        <div class="row">
+            <div class="mainScreen col-md-10 bg-info ">
+                <br>
+                <br>
+                <div id="timeOut" class="text-center text-warning font-weight-bold"><span id="time">60</span><br> :הזמן שנישאר לסיום המיבחן</div>
+                <br>
+                <br>
+                <br>
+                <div class="start">
+
+                    <label id="result" for="" class="bg-light p-1 text-dark font-weight-bold">לחץ למטה על התחל</label>
+                    <input type="number" placeholder="הכנס תוצאה כאן">
+                    <br>
+                    <br>
+
+                    <select name="operator" id="operator">             
+            <option value='0'>+</option>
+            <option value='1'>-</option>
+            <option value='2'>*</option>
+            <option value='3'>/</option>
+        </select>
+                    <label for="" class="text-light">בחר אופרטור</label>
+                    <br><br>
+
+                    <button id="send" disabled='true' onclick="checkResult()">שלח תוצאה</button>
+                    <br><br>
+                    <p class="text-light">
+                        יש לך 20 תרגילים בחשבון פשוט, לכל אופרטור ניקוד שונה עבור (+) 2נק', עבור (-) 2.5 נקודות, עבור (*) 7 נק', עבור (/) 9.5 נק'</p> <br>
+                    <button id="start" class="btn btn-success border-light" onclick="start()">התחל</button>
+                    <br><br>
+                    <h3 id="finale1"></h3>
+                    <div id="startAgain"></div>
+                    <h3 id="finale2"></h3>
+                    <h3 id="finale3"></h3>
+                    <div id="list" tabindex="-1">
+                        <ol id="final" class="text-center">
+
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        var xNum = 0,
+            yNum = 0,
+            score = 0,
+            add = 0,
+            qNum = 0,
+            timeOut = false,
+            seconds = 60,
+            end,
+            answerCorrect = [],
+            answerIncorrect = [],
+            answer = document.querySelector('input'),
+            operators = ['+', '-', '*', '/'],
+            operator = document.querySelector('select');
+
+        function start() {
+            document.getElementById('start').disabled = true;
+            document.getElementById('send').disabled = false;
+            if (!timeOut) {
+                timeOut = true;
+                startStatus = true;
+                submitStatus = false;
+                end = setInterval(function() {
+                    seconds--;
+                    document.getElementById('time').innerHTML = seconds;
+                    if (seconds <= 0) {
+                        finaly()
+                    }
+                }, 1000);
+            }
+            xNum = Math.floor(Math.random(1) * 10) + 1;
+            yNum = Math.floor(Math.random(1) * 10) + 1;
+            document.querySelector('#result').innerHTML = xNum + ' ' + operators[operator.value] + ' ' + yNum + ' =';
+        }
+
+
+        function checkResult() {
+
+            var result;
+            switch (Number(operator.value)) {
+                case 0:
+                    result = xNum + yNum;
+                    add = 2;
+                    break;
+                case 1:
+                    result = xNum - yNum;
+                    add = 2.5;
+                    break;
+                case 2:
+                    result = xNum * yNum;
+                    add = 7
+                    break;
+                case 3:
+                    result = (xNum / yNum).toPrecision(2);
+                    add = 9.5;
+            }
+            if (Number(answer.value) != result) {
+                answerIncorrect.push(xNum + ' ' + operators[operator.value] + ' ' + yNum + ' =' + result);
+            };
+            score += (Number(answer.value) == result ? add : 0);
+            if (qNum >= 19) {
+                finaly()
+            };
+            qNum++;
+            answer.value = 'הכנס תוצאה כאן';
+            start();
+        }
+
+        function finaly() {
+
+            clearInterval(end);
+            qNum = 0;
+            var final = document.getElementById('final'),
+                finale1 = document.getElementById('finale1'),
+                finale2 = document.getElementById('finale2'),
+                finale3 = document.getElementById('finale3');
+            finale1.innerHTML = ' :סך כל הנקודות הוא' + score;
+            finale2.innerHTML = (score >= 70 ? 'עברת את המיבחן ' : 'לא עברת');
+            finale3.innerHTML = 'תרגילים שלא ענית עליהם נכון:';
+            finale2.style.color = score >= 70 ? 'blue' : 'red';
+            for (let i = 0; i < answerIncorrect.length; i++) {
+                line = document.createElement('li');
+                final.appendChild(line);
+                final.lastChild.innerHTML = answerIncorrect[i];
+                $(document).scrollTop($(document).height());
+            };
+            var startAgain = document.createElement('button');
+            startAgain.innerHTML = 'לחץ כאן כדי להתחיל שוב';
+            document.querySelector('#startAgain').prepend(startAgain);
+            startAgain.addEventListener('click', reload);
+            startAgain.className = 'btn btn-success border-light';
+        }
+        var reload = function() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>2בונה דפים</title>
+</head>
+
+<body>
+    <h1 id="mainTitle">Page Builder</h1>
+
+    <div class="main">
+        <div id="input">
+            <input type="number" placeholder="enter width" id="width">
+            <input type="number" placeholder="enter height" id="height">
+            <br>
+            <label for="">background color</label>
+            <input id="color" type="color">
+            <label for="">text color</label>
+            <input type="color" name="" id="colorB">
+            <label for="">Frame color</label>
+            <input type="color" id="frameColor">
+            <br>
+            <input type="text" placeholder="enter text" id="content">
+            <input type="text" placeholder="enter title" id="title">
+            <label for="">Select Element</label>
+            <select name="element" id="elementType">
+                <option value="p">p</option>
+                <option value="h1">h1</option>
+              </select>
+            <input type="number" placeholder="frame width" id="frameWidth">
+            <input type="text" placeholder="frame type" id="frameType">
+            <button onclick="add()">הוסף צורה</button>
+        </div>
+        <br>
+        <hr>
+        <div id="page"></div>
+
+    </div>
+    <script>
+        function add() {
+            var col = document.getElementById('color').value,
+                colorB = document.getElementById('colorB').value,
+                width = document.getElementById('width').value,
+                height = document.getElementById('height').value,
+                content = document.getElementById('content').value,
+                elemSel = document.getElementById('elementType'),
+                elemType = elemSel.options[elemSel.selectedIndex].value,
+                frameColor = document.getElementById('frameColor').value,
+                frameWidth = document.getElementById('frameWidth').value,
+                frameType = document.getElementById('frameType').value,
+                elem = document.createElement(elemType);
+            elem.style.backgroundColor = col;
+            elem.style.color = colorB;
+            elem.style.width = width + 'px';
+            elem.style.height = height + 'px';
+            elem.title = title.value;
+            elem.style.borderColor = frameColor;
+            elem.style.borderWidth = frameWidth + 'px';
+            elem.style.borderStyle = frameType;
+            elem.innerHTML = content;
+            elem.id = 'box';
+            document.getElementById('page').appendChild(elem);
+
+        }
+    </script>
+
+</body>
+
+</html>

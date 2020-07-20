@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style2.css">
+    <title>משחק</title>
+</head>
+
+<body>
+    <div id="loading" style="font-size: largest;">Wait while loading...</div>
+    <div id="main" style="display: none;">
+        <div id="openScreen">
+            <h1>Exploration Mission</h1>
+            <h1 id="title">The Solar system</h1>
+            <button id="start">start</button>
+        </div>
+        <img id="missile" src="images/rocket0.svg" alt="">
+        <button id="reset" onclick="reset()">Test App</button>
+        <button id="shoot">Takeoff/Accelerate</button>
+        <button id="stop">Land</button>
+        <button id="rotate"></button>
+        <div>
+            <p id="messageArea"></p>
+        </div>
+    </div>
+    <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        //variables declarations
+        for (let i = 0; i < 4; i++) {
+            $('<img/>').attr('src', 'images/rocket' + i + '.svg').on('load', function() {
+                $(this).hide();
+            })
+        }
+
+        $(document).ready(function() {
+            $('#main').show();
+            $('#loading').hide();
+        });
+
+
+        var missile = $('#missile'),
+            rotate = $("#rotate"),
+            fire = $('#shoot'),
+            home = $('#stop'),
+            view = $('body'),
+            message = $('#messageArea'),
+            rocket = document.createElement('audio'),
+            supermanTheme = document.createElement('audio'),
+            viewX = 0,
+            viewY = 0,
+            deltaX,
+            alfa = 0,
+            _alfa = 0,
+            rad,
+            delXY = 0,
+            delX,
+            delY,
+            click = false,
+            flyMode = false,
+            fireIndex = 0,
+            soundActive = false,
+            outer = true,
+            planets = 0,
+            landing = false,
+            fireTime = 10000,
+            messageContent = ['press the button to take off',
+                'you can go around the earth to see the view',
+                'for accelerating press accelerate',
+                'Your mission is to go to the edge of the solar system',
+                'You\'ve reached the edge of the solar system, Go back to earth!',
+                'You went the wrong route and far from earth, pleas continue to the inner area of the solar system',
+                'It\'s too hot! please go back to earth!',
+                'You are now on the way to the earth...',
+                'When you want to land, press land button when you are closer to the atmosphere. be ware that if your speed is too high you need to try few times to use the atmosphere to declerate',
+                'you\'ve already finished the mission... please go back to earth!'
+            ],
+            messageIndex = 0,
+            _messageIndex,
+            backToEarth = false;
+
+
+        $('#start').click(function() {
+            $('#openScreen').remove();
+            $(missile).css({
+                'width': '200px',
+                'height': '500px'
+            });
+            $(view).css({
+                'width': '200px',
+                'height': '500px',
+                'visibility': 'visible'
+            })
+            $(view).children().css({
+                'visibility': 'visible'
+            });
+            viewX = 0;
+            viewY = 200;
+
+            //events listeners establishment
+            //mouse control on rocket rotation
+            rotate.mousedown(function(e) {
+                this.style.opacity = '1';
+                deltaX = e.clientX;
+                click = true;
+
+
+                rotate.mousemove(function(e) {
+                    if (click && flyMode) {
+                        alfa = _alfa + (e.clientX - deltaX);
+                        rad = 0.0174 * (alfa + 90);
+                        delX = Math.cos(rad) * delXY;
+                        delY = Math.sin(rad) * delXY;
+                    }
+                })
+            });
+
+            rotate.mouseup(function() {
+                this.style.opacity = '0.7';
+                click = false;
+                _alfa = alfa;
+            });
+            rotate.mouseleave(function() {
+                this.style.opacity = '0.7';
+                click = false;
+                _alfa = alfa;
+            });
+
+            //when pressing takeOff
+            fire.click(function() {
+                flyMode = true;
+                setTimeout(() => {
+                    if (!landing) {
+                        clearInterval(firing);
+                    };
+                    $(missile).attr({
+                        'src': 'images/rocket0.svg'
+                    });
+                    if (fireTime > 1000) {
+                        fireTime -= 1000
+                    };
+                }, fireTime);
+                if (messageIndex == 0) {
+                    messageIndex = 1;
+                };
+                delXY++;
+                flyMode = true;
+                fireIndex = 1;
+                if (!soundActive) {
+                    sound();
+                };
+                landing = false;
+            });
+
+
+            //landing listener
+            home.click(function() {
+                landing = true
+            });
+
+            //rendering the graphics according to the changes
+            var frame = setInterval(function() {
+                //fire framing
+                setTimeout(() => {
+                    if (flyMode) {
+                        if (fireIndex < 3) {
+                            fireIndex++;
+                        } else {
+                            fireIndex = 1
+                        }
+                    } else {
+                        fireIndex = 0
+                    }
+                    document.querySelector('#missile').src = 'images/rocket' + fireIndex + '.svg';
+
+                }, 25);
+
+                //messaging
+                if (messageIndex !== _messageIndex) {
+                    message.text(messageContent[messageIndex]);
+                    window.setTimeout(function() {
+                        message.text('');
+                        window.clearTimeout();
+                    }, 10000);
+                    _messageIndex = messageIndex;
+                };
+                missile.css({
+                    'transform': 'rotate(' + alfa + 'deg)'
+                });
+
+                //landing updating
+                if (landing && viewY > 750 && viewY < 10000) {
+                    if (delXY > -5) {
+                        delXY += (delXY > 10 ? -0.2 : -0.1)
+                    } else {
+                        delXY = -5;
+                    }
+
+                    if (alfa != 0) {
+                        alfa > 0 && alfa <= 180 ? alfa-- : alfa++;
+                    } else {
+                        alfa = 0;
+                    };
+                };
+                //landing complete
+                if (viewY <= 751 && landing && (alfa < 1 || alfa > 359)) {
+                    viewY = 750;
+                    fireIndex = 0;
+                    delXY = 0;
+                    landing = false;
+                    flyMode = false;
+                    rocket.pause();
+                    rocket.currentTime = 0;
+                    supermanTheme.pause();
+                    supermanTheme.currentTime = 0;
+                    soundActive = false;
+                };
+                //chosing planet backgrounds according to the height and mission status
+                //outer - if the range is earth-pluto or pluto - sun
+                if (outer && viewY > 3300 && viewY < 40000) {
+                    planet = 1;
+                    messageIndex = backToEarth ? 8 : 2;
+                } else if (viewY > 40000 && viewY < 90000) {
+                    planet = 2;
+                    if (outer) {
+                        messageIndex = backToEarth ? 9 : 3
+                    };
+                } else if (viewY > 90000 && viewY < 140000) {
+                    planet = 3
+                } else if (viewY > 140000 && viewY < 190000) {
+                    planet = 4
+                } else if (viewY > 190000 && viewY < 240000) {
+                    planet = 5
+                } else if (viewY > 240000 && viewY < 290000) {
+                    planet = 6
+                } else if (viewY > 290000 && viewY < 340000) {
+                    planet = 7;
+                    if (outer) {
+                        messageIndex = 4
+                        outer = false;
+                    };
+                } else if (!outer && (viewY < 40000)) {
+                    viewY = 589000;
+                } else if (!outer && viewY > 540000 && viewY < 590000) {
+                    planet = 8;
+                    if (!backToEarth) {
+                        messageIndex = 5
+                    };
+                } else if (backToEarth && viewY > 589000) {
+                    viewY = 39000;
+                    outer = true;
+                } else if (!outer && viewY < 540000 && viewY > 490000) {
+                    planet = 9
+                    if (backToEarth) {
+                        messageIndex = 7
+                    };
+                } else if (backToEarth && viewY > 530000) {
+                    viewY = 541000
+                } else if (!outer && viewY < 490000 && viewY > 440000) {
+                    planet = 10
+                } else if (!outer && viewY < 440000 && viewY > 390000) {
+                    planet = 11;
+                    backToEarth = true;
+                    messageIndex = 6;
+                };
+
+                //rendering all the background according to rocket status
+                if (viewY > 9200) {
+                    document.body.style.backgroundImage = 'url(\'\'), url(\'\'), url(\'images/planetOuter' + planet + '.png\'), url(\'images/space3.png\'), url(\'images/space.png\')';
+                } else if (viewY > 8200) {
+                    document.body.style.backgroundImage = 'url(\'\'), url(\'images/mountainsWithSpace.png\'), url(\'images/planetOuter' + planet + '.png\'), url(\'images/space3.png\'), url(\'images/space.png\')';
+                } else if (viewY > 2500) {
+                    document.body.style.backgroundImage = 'url(\'\'), url(\'images/mountainsWithSpace.png\'), url(\'\'), url(\'\'), url(\'\')';
+                } else {
+                    document.body.style.backgroundImage = 'url(\'images/trees.png\'), url(\'images/mountainsWithSpace.png\'), url(\'\'), url(\'\'),url(\'\')';
+                    missile.css({
+                        'width': '200' - viewY / 25 + 'px',
+                        'height': '500' - viewY / 12.5 + 'px'
+                    });
+                }
+                document.body.style.backgroundPositionX = viewX + 'px, ' + viewX / 5 + 'px, ' + viewX / 20 + 'px, ' + viewX / 5 + 'px, ' + viewX + 'px';
+                document.body.style.backgroundPositionY = (viewY - 500) + 'px, ' + (viewY + 1650) / 5 + 'px, ' + viewY / 20 + 'px, ' + viewY / 5 + 'px, ' + viewY + 'px';
+
+
+
+                //rotating when reach the limits 
+                if (!landing && (viewY >= 2000000 || viewY <= 750)) {
+                    alfa += ((alfa >= 180 && alfa <= 270) || (alfa > 0 && alfa <= 90) ? 5 : 0);
+                    alfa += ((alfa >= 270 && alfa < 360) || (alfa < 180 && alfa >= 90) ? -5 : 0);
+
+                    _alfa = alfa;
+                    //limit the min height
+                    if (viewY < 750) {
+                        viewY = 750;
+                    }
+                };
+                if (viewY < 750) {
+                    viewY = 750;
+                }
+
+                //keep the angle value at range
+                if (alfa > 360) {
+                    alfa -= 360
+                };
+                if (alfa < 0) {
+                    alfa += 360
+                };
+
+                //rad - js works with radians, delXY - the vector of the rocket direction
+                rad = 0.0174 * (alfa + 90);
+                delX = Math.cos(rad) * delXY;
+                delY = Math.sin(rad) * delXY;
+                viewX += delX;
+                viewY += ((!outer && viewY < 340000 && viewY > 0) || ((outer && viewY > 500) || (!outer && viewY > 412635)) ? delY : !(!outer && viewY > 390050) ? -100 : 100);
+
+
+
+                if (viewY > 10000) {
+                    supermanTheme.play();
+                }
+
+
+            }, 25);
+
+            //sound rendering
+            var sound = function() {
+                soundActive = true;
+                rocket.src = 'audio/rocket.mp3';
+                rocket.loop = true;
+                document.body.appendChild(rocket);
+                rocket.play();
+                soundActive = true;
+                supermanTheme.src = 'audio/superman.mp3';
+                supermanTheme.loop = true;
+                document.body.appendChild(supermanTheme);
+            }
+
+
+
+        })
+
+        //developer testing
+        var reset = function() {
+            alert('viewX: ' + viewX + '\n\n viewY: ' + viewY + '\n\n delXY: ' + delXY + '\n\n delX: ' + delX + '\n\n delY: ' + delY + '\n\n deltaX: ' + deltaX + '\n\n alfa: ' + alfa + '\n\n rad: ' + rad + '\n\n outer: ' + outer + '\n\n backToEarth: ' + backToEarth + '\n\n messageIndex: ' + messageIndex + '\n\n _messageIndex: ' + _messageIndex);
+        }
+    </script>
+</body>
+
+</html>

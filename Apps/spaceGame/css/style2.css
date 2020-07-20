@@ -1,0 +1,96 @@
+#openScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    visibility: visible;
+    background-image: url('../images/space3.png');
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 70px;
+    color: gold;
+    text-shadow: gray 5px 5px 2px;
+}
+
+#title {
+    font-size: 120px;
+}
+
+#start {
+    position: fixed;
+    font-size: 30px;
+    width: fit-content;
+    text-align: center;
+    left: 50%;
+    padding: 10px;
+    background-color: gold;
+    box-shadow: gray 5px 5px 2px;
+}
+
+body {
+    background-image: url('../images/trees.png'), url('images/mountains.png');
+    visibility: hidden;
+}
+
+#messageArea {
+    position: fixed;
+    text-align: center;
+    color: white;
+    text-shadow: gray 5px 5px 2px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 500px;
+    height: 100px;
+    /*background-image: url('images/messageBoard.png');*/
+    left: 2%;
+    top: 20px;
+    background-size: cover;
+    border-radius: 30px;
+}
+
+#missile {
+    width: 200px;
+    height: 500px;
+    transform: rotate(0deg);
+    position: fixed;
+    right: 50%;
+    bottom: 50px;
+}
+
+#reset {
+    background-color: green;
+    text-align: center;
+    position: fixed;
+    right: 20px;
+    bottom: 450px;
+    padding: 10px;
+}
+
+#shoot {
+    background-color: red;
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    padding: 10px;
+}
+
+#stop {
+    background-color: blue;
+    position: fixed;
+    right: 80px;
+    bottom: 80px;
+    padding: 10px;
+}
+
+#rotate {
+    background-image: url('../images/rotating.png');
+    position: fixed;
+    width: 300px;
+    height: 60px;
+    left: 60%;
+    bottom: 20px;
+    opacity: 0.7;
+}

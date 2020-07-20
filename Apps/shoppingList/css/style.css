@@ -1,0 +1,84 @@
+* {
+    direction: rtl;
+}
+
+h1 {
+    text-align: center;
+}
+
+#ramiLevi {
+    z-index: -7;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url('../images/ramiLevi.png');
+    opacity: 0.2;
+}
+
+#start {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    font-size: large;
+    ;
+}
+
+input {
+    width: 220px;
+}
+
+#buttons {
+    text-align: center;
+}
+
+#agala {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    left: -300px;
+    width: 300px;
+}
+
+#block {
+    text-align: center;
+}
+
+#listFrame {
+    text-align: left;
+    width: 400px;
+}
+
+ol {
+    text-align: left;
+    width: 300px;
+    text-align: right;
+    display: block;
+    background-color: white;
+    border: rgb(127, 127, 153) 2px solid;
+    border-radius: 10px;
+    height: 400px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+ol::-webkit-scrollbar {
+    display: none;
+}
+
+li p {
+    display: inline;
+}
+
+#item0,
+#item1,
+#item2,
+#item3,
+#item4 {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+}

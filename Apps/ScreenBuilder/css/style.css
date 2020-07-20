@@ -1,0 +1,38 @@
+#mainTitle {
+    text-align: center;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: yellowgreen;
+}
+
+#input {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+.main {
+    width: 60%;
+    min-height: 200px;
+    border: black solid 2px;
+    margin: auto;
+    background: wheat;
+}
+
+#box {
+    display: inline-block;
+    margin: 1px;
+}
+
+button {
+    background-color: tomato;
+}

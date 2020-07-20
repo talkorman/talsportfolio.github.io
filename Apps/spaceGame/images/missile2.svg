@@ -1,0 +1,19 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+
+ <g>
+  <title>Layer 1</title>
+  <rect fill="#ffff00" stroke="#000000" stroke-width="5" x="248" y="182" width="237" height="84" id="svg_1"/>
+  <path fill="#ffff00" stroke="#ffff00" stroke-width="5" d="m177.61446,224.47551l70.49681,-40.49957l70.49707,40.49957l-70.49707,40.50047l-70.49681,-40.50047z" id="svg_2"/>
+  <path id="svg_4" d="m247,263l-72,-40"/>
+  <path id="svg_13" d="m247,263l-72,-40"/>
+  <line fill="none" stroke="#000000" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="247" y1="263" x2="175" y2="223" id="svg_3" transform="rotate(2.54481, 211, 243)"/>
+  <line fill="none" stroke="#000000" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="251" y1="180" x2="175" y2="222" id="svg_5"/>
+  <path fill="#bfbf00" stroke="#bfbf00" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" d="m429.89645,181.36121l54.00015,-53.99989l53.99939,53.99989l-53.99939,54.00006l-54.00015,-54.00006z" id="svg_6"/>
+  <path fill="#bfbf00" stroke="#bfbf00" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" d="m429.00192,264.00183l54.00015,-53.99988l53.99939,53.99988l-53.99939,54.00006l-54.00015,-54.00006z" id="svg_7"/>
+  <text fill="#000000" stroke="#bfbf00" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="331" y="229" id="svg_8" font-size="24" font-family="serif" text-anchor="middle" xml:space="preserve" transform="rotate(1.45045e-06, 325.611, 208.817)">Classico</text>
+  <circle fill="#ffff00" stroke="#ffff00" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="615" cy="214.5" r="20.30164" id="svg_9"/>
+  <circle fill="#ffff00" stroke="#ffff00" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="573" cy="189" r="20.30164" id="svg_10"/>
+  <circle fill="#ffff00" stroke="#ffff00" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" cx="579" cy="243" r="20.30164" id="svg_11"/>
+ </g>
+</svg>

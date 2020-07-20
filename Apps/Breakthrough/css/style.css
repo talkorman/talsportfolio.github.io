@@ -1,0 +1,76 @@
+* {
+    cursor: none;
+}
+
+body {
+    position: fixed;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.gameStatus {
+    position: absolute;
+    width: 100%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    top: 40%;
+    z-index: 3;
+}
+
+#go {
+    color: red;
+    font-size: 40px;
+}
+
+#start {
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+}
+
+h1 {
+    font-family: serif;
+    color: blanchedalmond;
+    text-shadow: 2px 2px burlywood;
+    text-align: center;
+    font-size: 50px;
+}
+
+.status {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    font-size: 30px;
+    top: 0%;
+    color: lightskyblue;
+    text-align: left;
+}
+
+.status>p {
+    position: absolute;
+    margin-top: 0;
+}
+
+.status span {
+    color: white;
+}
+
+.whiteBrick,
+.yellowBrick,
+.pinkBrick {
+    position: fixed;
+    border: solid 1px gray;
+}
+
+.matka {
+    background-color: white;
+    position: fixed;
+    top: 90%;
+}
+
+.ball img {
+    position: fixed;
+    width: 1%;
+}

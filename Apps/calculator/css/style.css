@@ -1,0 +1,25 @@
+body {
+    direction: rtl;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.login,
+.calculator {
+    text-align: center;
+    border: blue solid 2px;
+}
+
+.calcBox {
+    border: black solid 2px;
+}
+
+.result {
+    text-align: center;
+    border: solid blue 2px;
+    width: 50%;
+    font-size: 1.5em;
+}
